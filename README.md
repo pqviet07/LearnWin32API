@@ -8,5 +8,5 @@
  -Wall -Wextra -L"C:/MinGW/lib" -l"gdi32" -l"Comdlg32" -lcomctl32
 ```
 
-# **References**
+# **Reference**
 - vncoding.net
