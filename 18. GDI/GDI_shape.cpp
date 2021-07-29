@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     CreateWindowW(wc.lpszClassName, L"Shapes",
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,
         100, 100, 390, 230, NULL, NULL, hInstance, NULL);
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
     while(GetMessage(&msg, NULL, 0, 0))
     {
         DispatchMessage(&msg);

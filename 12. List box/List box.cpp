@@ -1,5 +1,5 @@
-#include "windows.h"
-#include "strsafe.h"
+#include <Windows.h>
+#include <strsafe.h>
 
 #define IDC_LIST 1
 #define IDC_STATIC 2
@@ -36,7 +36,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     RegisterClass(&wc);
     CreateWindow(wc.lpszClassName, TEXT("List Box"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 340, 200, 0, 0, hInstance, 0);
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
     while(GetMessage(&msg, NULL, 0, 0))
     {
         TranslateMessage(&msg);

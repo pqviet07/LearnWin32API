@@ -8,15 +8,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
     MSG msg;
     WNDCLASS wc = { 0 };
-    wc.lpszClassName = "Tooltip";
+    wc.lpszClassName = TEXT("Tooltip");
     wc.hInstance = hInstance;
     wc.hbrBackground = GetSysColorBrush(COLOR_3DFACE);
     wc.lpfnWndProc = WndProc;
     wc.hCursor = LoadCursor(0, IDC_ARROW);
 
     RegisterClass(&wc);
-    CreateWindow(wc.lpszClassName, "Tooltip", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 200, 150, 0, 0, hInstance, 0);
-
+    CreateWindow(wc.lpszClassName, TEXT("Tooltip"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 200, 150, 0, 0, hInstance, 0);
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
     while(GetMessage(&msg, NULL, 0, 0))
     {
         TranslateMessage(&msg);

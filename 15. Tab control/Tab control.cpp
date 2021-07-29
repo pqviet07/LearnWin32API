@@ -25,7 +25,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     RegisterClass(&wc);
     CreateWindow(wc.lpszClassName, TEXT("Tab Control"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 380, 230, 0, 0, hInstance, 0);
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
     while(GetMessage(&msg, NULL, 0, 0))
     {
         TranslateMessage(&msg);
@@ -48,13 +48,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         icex.dwICC = ICC_TAB_CLASSES;
         InitCommonControlsEx(&icex);
         hTab = CreateWindow(WC_TABCONTROL, NULL, WS_CHILD | WS_VISIBLE, 0, 0, 200, 150, hwnd, (HMENU)ID_TABCTRL, g_hinst, NULL);
-        hEdit = CreateWindow("edit", NULL, WS_CHILD | WS_VISIBLE | WS_BORDER, 250, 20, 100, 25, hwnd, (HMENU)EDIT, g_hinst, NULL);
-
-        CreateWindow("button", "Add", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 250, 50, 100, 25, hwnd, (HMENU)BTN_ADD, g_hinst, NULL);
-
-        CreateWindow("button", "Del", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 250, 80, 100, 25, hwnd, (HMENU)BTN_DEL, g_hinst, NULL);
-
-        CreateWindow("button", "Delall", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 250, 110, 100, 25, hwnd, (HMENU)BTN_DELALL, g_hinst, NULL);
+        hEdit = CreateWindow(TEXT("edit"), NULL, WS_CHILD | WS_VISIBLE | WS_BORDER, 250, 20, 100, 25, hwnd, (HMENU)EDIT, g_hinst, NULL);
+        CreateWindow(TEXT("button"), TEXT("Add"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 250, 50, 100, 25, hwnd, (HMENU)BTN_ADD, g_hinst, NULL);
+        CreateWindow(TEXT("button"), TEXT("Del"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 250, 80, 100, 25, hwnd, (HMENU)BTN_DEL, g_hinst, NULL);
+        CreateWindow(TEXT("button"), TEXT("Delall"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 250, 110, 100, 25, hwnd, (HMENU)BTN_DELALL, g_hinst, NULL);
         break;
     case WM_COMMAND:
         switch(LOWORD(wParam))

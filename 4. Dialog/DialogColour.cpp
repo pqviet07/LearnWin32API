@@ -20,7 +20,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     wc.lpfnWndProc = WndProc;
     RegisterClass(&wc);
     CreateWindow(wc.lpszClassName, TEXT("Color dialog box"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, 150, 150, 250, 200, 0, 0, hInstance, 0);
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
     while(GetMessage(&msg, NULL, 0, 0))
     {
         DispatchMessage(&msg);

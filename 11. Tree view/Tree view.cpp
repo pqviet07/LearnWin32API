@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <commctrl.h>
+#include <tchar.h>
 
 #pragma comment( lib, "comctl32.lib" )
 
@@ -13,7 +14,8 @@ HTREEITEM AddItemToTree(HWND hwndTV, LPTSTR lpszItem, int nLevel);
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 // Ham Winmain()
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+    LPSTR lpCmdLine, int nCmdShow)
 {
     MSG msg;
     HWND hwnd;
@@ -50,13 +52,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     case WM_CREATE:
         HWND hwndTreeview;
         hwndTreeview = CreateATreeView(hwnd);
-        AddItemToTree(hwndTreeview, "Drink", 1);
-        AddItemToTree(hwndTreeview, "Orange juice", 2);
-        AddItemToTree(hwndTreeview, "Price: 20K", 3);
-        AddItemToTree(hwndTreeview, "Coffee", 2);
-        AddItemToTree(hwndTreeview, "Price: 25K", 3);
-        AddItemToTree(hwndTreeview, "Tea", 2);
-        AddItemToTree(hwndTreeview, "Price: 15K", 3);
+        AddItemToTree(hwndTreeview, _T("Drink"), 1);
+        AddItemToTree(hwndTreeview, _T("Orange juice"), 2);
+        AddItemToTree(hwndTreeview, _T("Price: 20K"), 3);
+        AddItemToTree(hwndTreeview, _T("Coffee"), 2);
+        AddItemToTree(hwndTreeview, _T("Price: 25K"), 3);
+        AddItemToTree(hwndTreeview, _T("Tea"), 2);
+        AddItemToTree(hwndTreeview, _T("Price: 15K"), 3);
         break;
     case WM_DESTROY:
         PostQuitMessage(0);

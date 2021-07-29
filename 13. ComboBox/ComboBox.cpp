@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     hwnd = CreateWindow(wc.lpszClassName, TEXT("Combo Box"),
         WS_OVERLAPPEDWINDOW | WS_VISIBLE,
         100, 100, 270, 170, 0, 0, hInstance, 0);
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
 
     while(GetMessage(&msg, NULL, 0, 0))
     {

@@ -13,7 +13,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     RegisterClassW(&wc);
     CreateWindowW(wc.lpszClassName, L"Introduce myself", WS_OVERLAPPEDWINDOW | WS_VISIBLE, 100, 100, 420, 270, 0, 0, hInstance, 0);
-
+    ShowWindow(GetConsoleWindow(), SW_HIDE); // Hide console window
     while(GetMessage(&msg, NULL, 0, 0))
     {
         TranslateMessage(&msg);
